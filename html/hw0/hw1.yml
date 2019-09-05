@@ -1,0 +1,16 @@
+---
+- hosts: hw1
+  tasks:
+  - name: install apache
+    apt:
+      name: apache2
+      update_cache: yes
+      state: latest
+    become: yes
+  - name: clone my repo
+    git:
+      repo: https://github.com/fenghsi/cse356hw1.git
+      dest: /html/hw0
+      version: master
+    become: yes
+  
